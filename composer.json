@@ -1,0 +1,40 @@
+{
+    "name": "brunocfalcao/laravel-tokenizer",
+    "description": "Laravel tokenizer - Token usage for web apps (create, burn, check, etc)",
+    "keywords": [
+        "brunocfalcao",
+        "laravel",
+        "eloquent"
+    ],
+    "homepage": "https://github.com/brunocfalcao/brunocfalcao/laravel-tokenizer",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bruno Falcão",
+            "email": "bruno.c.falcao@brunofalcao.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brunocfalcao\\Defaultables\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Brunocfalcao\\Tokenizer\\TokenizerServiceProvider"
+            ]
+        }
+    }
+}
