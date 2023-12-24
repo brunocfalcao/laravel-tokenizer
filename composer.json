@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Brunocfalcao\\Defaultables\\": "src/"
+            "Brunocfalcao\\Tokenizer\\": "src/"
         }
     },
     "config": {

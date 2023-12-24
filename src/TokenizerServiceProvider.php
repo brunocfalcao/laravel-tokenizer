@@ -1,10 +1,10 @@
 <?php
 
-namespace Brunocfalcao\Defaultables;
+namespace Brunocfalcao\Tokenizer;
 
 use Illuminate\Support\ServiceProvider;
 
-class DefaultablesServiceProvider extends ServiceProvider
+class TokenizerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
