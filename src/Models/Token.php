@@ -26,6 +26,7 @@ class Token extends Model
     {
         $tokenInstance = self::where('token', $token)->firstOrFail();
         $tokenInstance->delete();
+
         return true;
     }
 }
