@@ -24,7 +24,12 @@ class Token extends Model
 
     public static function burn($token)
     {
-        $tokenInstance = self::where('token', $token)->firstOrFail();
+        $tokenInstance = self::where('token', $token)->first();
+
+        if (! $tokenInstance) {
+            return false;
+        }
+
         $tokenInstance->delete();
 
         return true;
