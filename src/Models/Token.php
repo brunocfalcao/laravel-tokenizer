@@ -24,7 +24,7 @@ class Token extends Model
 
     public static function burn($token)
     {
-        $tokenInstance = self::where('token', $token)->first();
+        $tokenInstance = self::firstWhere('token', $token);
 
         if (! $tokenInstance) {
             throw new \Exception('Token invalid or already burned ('.$token.')');
