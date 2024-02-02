@@ -26,6 +26,8 @@ class Token extends Model
     {
         $tokenInstance = self::firstWhere('token', $token);
 
+        var_dump($tokenInstance);
+
         if (! $tokenInstance) {
             throw new \Exception('Token invalid or already burned ('.$tokenInstance.')');
         }
