@@ -6,7 +6,7 @@ use Brunocfalcao\Tokenizer\Models\Token;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckToken
+class WithToken
 {
     public function handle(Request $request, Closure $next)
     {
