@@ -2,11 +2,14 @@
 
 namespace Brunocfalcao\Tokenizer\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Token extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['token'];
 
     public static function createToken()
@@ -24,7 +27,7 @@ class Token extends Model
         $tokenInstance = self::where('token', $token)->first();
 
         if (! $tokenInstance) {
-            throw new \Exception('Token invalid to be burned');
+            throw new \Exception('Token invalid or already burned');
         }
 
         $tokenInstance->delete();
