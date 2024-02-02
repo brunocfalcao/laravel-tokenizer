@@ -27,7 +27,7 @@ class Token extends Model
         $tokenInstance = self::firstWhere('token', $token);
 
         if (! $tokenInstance) {
-            throw new \Exception('Token invalid or already burned ('.$token.')');
+            throw new \Exception('Token invalid or already burned ('.$tokenInstance.')');
         }
 
         $tokenInstance->delete();
