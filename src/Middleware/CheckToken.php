@@ -5,18 +5,17 @@ namespace Brunocfalcao\Tokenizer\Middleware;
 use Brunocfalcao\Tokenizer\Models\Token;
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class CheckToken
 {
     public function handle(Request $request, Closure $next)
     {
         if (! $request->has('token')) {
-            throw new BadRequestException('Unknown Token');
+            throw new \Exception('Token invalid');
         }
 
-        if (! Token::burn($request->input('token'))) {
-            throw new BadRequestException('Invalid Token');
+        if (! Token::isValid($request->input('token'))) {
+            throw new \Exception('Token invalid');
         }
 
         return $next($request);

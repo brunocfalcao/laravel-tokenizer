@@ -12,7 +12,6 @@ class CreateTokensTable extends Migration
             $table->id();
             $table->string('token', 40)->unique();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
