@@ -26,10 +26,10 @@ class Token extends Model
     {
         $tokenInstance = self::firstWhere('token', $token);
 
-        var_dump($tokenInstance . ' - ' . $token);
+        var_dump('|' . $tokenInstance->id . ' - ' . $token);
 
         if (! $tokenInstance) {
-            throw new \Exception('Token invalid or already burned ('.$tokenInstance.')');
+            throw new \Exception('Token unexistent or already burned ('.$tokenInstance.')');
         }
 
         $tokenInstance->delete();
