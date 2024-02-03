@@ -2,6 +2,8 @@
 
 namespace Brunocfalcao\Tokenizer;
 
+use Brunocfalcao\Tokenizer\Middleware\WithToken;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class TokenizerServiceProvider extends ServiceProvider
@@ -13,6 +15,6 @@ class TokenizerServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //
+        Route::aliasMiddleware('withToken', WithToken::class);
     }
 }

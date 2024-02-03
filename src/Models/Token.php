@@ -12,9 +12,9 @@ class Token extends Model
 
     protected $fillable = ['token'];
 
-    public static function createToken()
+    public static function createToken(?string $token = null)
     {
-        return self::create(['token' => Str::random(40)]);
+        return self::create(['token' => $token ?? Str::random(40)]);
     }
 
     public static function isValid($token)
@@ -22,7 +22,7 @@ class Token extends Model
         return self::where('token', $token)->exists();
     }
 
-    public static function burn(string $token)
+    public static function burn(string $token, $forceDelete = false)
     {
         $tokenInstance = self::firstWhere('token', $token);
 
@@ -30,7 +30,7 @@ class Token extends Model
             throw new \Exception('Token unexistent or already burned ('.$token.')');
         }
 
-        $tokenInstance->delete();
+        $forceDelete ? $tokenInstance->forceDelete() : $tokenInstance->delete();
 
         return true;
     }
