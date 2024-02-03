@@ -30,8 +30,6 @@ class Token extends Model
             throw new \Exception('Token unexistent or already burned ('.$token.')');
         }
 
-        info('Burning token ' . $token);
-
         $tokenInstance->delete();
 
         return true;
