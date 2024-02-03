@@ -22,11 +22,11 @@ class Token extends Model
         return self::where('token', $token)->exists();
     }
 
-    public static function burn($token)
+    public static function burn(string $token)
     {
         $tokenInstance = self::firstWhere('token', $token);
 
-        var_dump($tokenInstance);
+        var_dump($tokenInstance . ' - ' . $token);
 
         if (! $tokenInstance) {
             throw new \Exception('Token invalid or already burned ('.$tokenInstance.')');
