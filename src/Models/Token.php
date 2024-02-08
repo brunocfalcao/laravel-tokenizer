@@ -34,4 +34,13 @@ class Token extends Model
 
         return true;
     }
+
+    public static function restoreToken(string $token)
+    {
+        $tokenInstance = self::withTrashed()->firstWhere('token', $token);
+
+        if ($tokenInstance) {
+            $tokenInstance->restore();
+        }
+    }
 }
