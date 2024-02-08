@@ -22,7 +22,7 @@ class Token extends Model
         return self::where('token', $token)->exists();
     }
 
-    public static function burn(string $token, $forceDelete = false)
+    public static function burnToken(string $token, $forceDelete = false)
     {
         $tokenInstance = self::firstWhere('token', $token);
 
